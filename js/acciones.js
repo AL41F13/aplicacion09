@@ -1,7 +1,24 @@
 // JavaScript Document
 $(document).ready(function(e) {
-//document.addEventListener("deviceready",function(){
-	$('#btnjugar').on('click',function(){    //asigna los cuadros
+document.addEventListener("deviceready",function(){
+	audio= window.plugins.LowLatencyAudio;
+
+audio.preloadFX('b1', 'audio/C.mp3', function (){}, 
+function (msg) { alert ("error" + msg);});
+
+audio.preloadFX('b2', 'audio/D.mp3', function (){}, 
+function (msg) { alert ("error" + msg);});
+
+audio.preloadFX('b3', 'audio/E.mp3', function (){}, 
+function (msg) { alert ("error" + msg);});
+
+audio.preloadFX('b4', 'audio/F.mp3', function (){}, 
+function (msg) { alert ("error" + msg);});
+
+
+	
+	
+	$('#btnjugar').on('tap',function(){    //asigna los cuadros
 		//alert ("dentro");
 		var pantalla=$.mobile.getScreenHeight();
 		//alert ('pantalla' + pantalla);
@@ -31,21 +48,7 @@ $('.cuadro').on ('vmouseup', function (){
 	 return q .substring(1);
  }
 });
-audio= window.plugins.LowLatencyAudio;
 
-audio.preloadFX('b1', 'audio/C.mp3', function (){}, 
-function (msg) { alert ("error" + msg);});
-
-audio.preloadFX('b2', 'audio/D.mp3', function (){}, 
-function (msg) { alert ("error" + msg);});
-
-audio.preloadFX('b3', 'audio/E.mp3', function (){}, 
-function (msg) { alert ("error" + msg);});
-
-audio.preloadFX('b4', 'audio/F.mp3', function (){}, 
-function (msg) { alert ("error" + msg);});
-
-
-//});
+});
 
  
