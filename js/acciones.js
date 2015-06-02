@@ -31,7 +31,7 @@ $('.cuadro').on ('vmouseup', function (){
 	 return q .substring(1);
  }
 });
-audio= window.plugins.LowlactancyAudio;
+audio= window.plugins.LowLatencyAudio;
 
 audio.preloadFX('b1', 'audio/C.mp3', function (){}, 
 function (msg) { alert ("error" + msg);});
