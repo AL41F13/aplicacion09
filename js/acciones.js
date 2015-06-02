@@ -27,9 +27,25 @@ $('.cuadro').on ('vmouseup', function (){
 });
  function quien(q)
  {
+	 audio.play(q);
 	 return q .substring(1);
  }
 });
+audio= window.plugins.LowlactancyAudio;
+
+audio.preloadFX('b1', 'audio/C.mp3', function (){}, 
+function (msg) { alert ("error" + msg);});
+
+audio.preloadFX('b2', 'audio/D.mp3', function (){}, 
+function (msg) { alert ("error" + msg);});
+
+audio.preloadFX('b3', 'audio/E.mp3', function (){}, 
+function (msg) { alert ("error" + msg);});
+
+audio.preloadFX('b4', 'audio/F.mp3', function (){}, 
+function (msg) { alert ("error" + msg);});
+
+
 //});
 
  
