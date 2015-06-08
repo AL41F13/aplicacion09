@@ -1,7 +1,7 @@
 // JavaScript Document
 $(document).ready(function(e) {
 	document.addEventListener("deviceready",function(){
-     var basedatos=window.sqliteplugin.openDatabase({name: "coloresBD.db",createFromLocation:1});
+     var basedatos=window.sqlitePlugin.openDatabase({name: "coloresBD.db",createFromLocation:1});
 	  cargarnombrejugador();
 	 
 	 function cargarnombrejugador()
@@ -35,16 +35,16 @@ function (msg) { alert ("error" + msg);});
 	
 	
 	$('#btnjugar').on('tap',function(){    //asigna los cuadros
-		//alert ("dentro");
+		alert ("dentro");
 		var pantalla=$.mobile.getScreenHeight();
-		//alert ('pantalla' + pantalla);
+		alert ('pantalla' + pantalla);
 		var encabezado=$('.ui header').outerHeight();
-		//alert ('encabezado' + encabezado);
+		alert ('encabezado' + encabezado);
 		var pie=$('.ui footer').outerHeight();
-		//alert ('pie' + pie);
+		alert ('pie' + pie);
 		var contenido=$('.ui-content').outerHeight();// va apreguntar su alto externo
-		//alert ('contenido' + contenido);
-		var alto=(pantalla-encabezado-pie)/2; 
+		alert ('contenido' + contenido);
+		var alto=((pantalla-encabezado-pie)/2); 
 		
 		 
 		
