@@ -1,8 +1,23 @@
 // JavaScript Document
 $(document).ready(function(e) {
-document.addEventListener("deviceready",function(){
-	audio= window.plugins.LowLatencyAudio;
+	document.addEventListener("deviceready",function(){
+     var basedatos=window.sqliteplugin.openDatabase({name: "coloresBD.db",createFromLocation:1});
+	  cargarnombrejugador();
+	 
+	 function cargarnombrejugador()
+		{
+			basedatos.transaction(function(ejecutador){
+			var sql="SELECT NombreUsuario FROM Usuario";
+			ejecutar.executeSql(sql,undefined,function(ejecutar,resultado){
+			var datosjugador=resultado.row.item(0);
+			$('#jugador').text(datosjugador.NombreUsusario);
 
+});
+});
+}
+		
+
+audio= window.plugins.LowLatencyAudio;
 audio.preloadFX('b1', 'audio/C.mp3', function (){}, 
 function (msg) { alert ("error" + msg);});
 
@@ -14,6 +29,7 @@ function (msg) { alert ("error" + msg);});
 
 audio.preloadFX('b4', 'audio/F.mp3', function (){}, 
 function (msg) { alert ("error" + msg);});
+
 
 
 	
@@ -29,6 +45,7 @@ function (msg) { alert ("error" + msg);});
 		var contenido=$('.ui-content').outerHeight();// va apreguntar su alto externo
 		//alert ('contenido' + contenido);
 		var alto=(pantalla-encabezado-pie)/2; 
+		
 		 
 		
 		$('.cuadro').height(alto);
