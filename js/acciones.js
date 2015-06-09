@@ -8,7 +8,7 @@ $(document).ready(function(e) {
 		{
 			basedatos.transaction(function(ejecutador){
 			var sql="SELECT NombreUsuario FROM Usuario";
-			ejecutar.executeSql(sql,undefined,function(ejecutar,resultado){
+			ejecutador.executeSql(sql,undefined,function(ejecutador,resultado){
 			var datosjugador=resultado.rows.item(0);
 			$('#jugador').text(datosjugador.NombreUsusario);
 
@@ -18,16 +18,16 @@ $(document).ready(function(e) {
 		
 
 audio= window.plugins.LowLatencyAudio;
-audio.preloadFX('b1', 'audio/C.mp3', function (){}, 
+audio.preloadFX('b1', 'audio/C.mp3', function (msg){}, 
 function (msg) { alert ("error" + msg);});
 
-audio.preloadFX('b2', 'audio/D.mp3', function (){}, 
+audio.preloadFX('b2', 'audio/D.mp3', function (msg){}, 
 function (msg) { alert ("error" + msg);});
 
-audio.preloadFX('b3', 'audio/E.mp3', function (){}, 
+audio.preloadFX('b3', 'audio/E.mp3', function (msg){}, 
 function (msg) { alert ("error" + msg);});
 
-audio.preloadFX('b4', 'audio/F.mp3', function (){}, 
+audio.preloadFX('b4', 'audio/F.mp3', function (msg){}, 
 function (msg) { alert ("error" + msg);});
 
 
@@ -62,7 +62,7 @@ $('.cuadro').on ('vmouseup', function (){
  function quien(q)
  {
 	 audio.play(q);
-	 return q .substring(1);
+	 return q.substring(1);
  }
 
 $('#btnconfigurar').on('tap',function (){
