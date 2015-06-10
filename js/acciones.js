@@ -52,13 +52,13 @@ function (msg) { alert ("error" + msg);});
 	});
 	
 	
-$('.cuadro').on ('vmousedown',function (){  ///agrega la clase 'pulsado' a el elemento .cuadro
-		$('#pantalla').append(quien($(this).attr ('id')));
-		$(this).addClass('pulsado');
-});
-$('.cuadro').on ('vmouseup', function (){
-	$(this).removeClass('pulsado');
-});
+//$('.cuadro').on ('vmousedown',function (){  ///agrega la clase 'pulsado' a el elemento .cuadro
+		//$('#pantalla').append(quien($(this).attr ('id')));
+		//$(this).addClass('pulsado');
+//});
+//$('.cuadro').on ('vmouseup', function (){
+	//$(this).removeClass('pulsado');
+//});
  function quien(q)
  {
 	 audio.play(q);
@@ -74,8 +74,17 @@ $('#btnguardar').on ('tap',function(){
 		consulta.executeSql("UPDATE Usuario SET Nombreusuario=? where Claveusuario='1'",[Nombreusuario]);
 	});
 });	
-
-
-
+function flash (boton)
+	{
+		boton.stop().animate ({opacity:'0.5'},{
+		duracion:80, complete:function(){
+			boton.stop().animate({opacity:'1'},200);
+		}
+	});
+}
+});
+$('.cuadro').on ('tap',function (){
+	flash ($(this))
+	audio.play ($(this).attr('id'));
 });
  });
