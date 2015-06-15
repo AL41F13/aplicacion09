@@ -1,4 +1,4 @@
-// JavaScript Document
+ // JavaScript Document
 $(document).ready(function(e) {
 	document.addEventListener("deviceready",function(){
      var basedatos=window.sqlitePlugin.openDatabase({name: "coloresBD.db",createFromLocation:1});
@@ -8,7 +8,7 @@ $(document).ready(function(e) {
 		{
 			basedatos.transaction(function(ejecutador){
 			var sql="SELECT NombreUsuario FROM Usuario";
-			ejecutador.executeSql(sql,undefined,function(ejecutador,resultado){
+			ejecutador.executeSql(sql,undefined,function(ejecutar,resultado){
 			var datosjugador=resultado.rows.item(0);
 			$('#jugador').text(datosjugador.NombreUsusario);
 
@@ -18,16 +18,16 @@ $(document).ready(function(e) {
 		
 
 audio= window.plugins.LowLatencyAudio;
-audio.preloadFX('b1', 'audio/C.mp3', function (msg){}, 
+audio.preloadFX('b1', 'audio/C.mp3', function (){}, 
 function (msg) { alert ("error" + msg);});
 
-audio.preloadFX('b2', 'audio/D.mp3', function (msg){}, 
+audio.preloadFX('b2', 'audio/D.mp3', function (){}, 
 function (msg) { alert ("error" + msg);});
 
-audio.preloadFX('b3', 'audio/E.mp3', function (msg){}, 
+audio.preloadFX('b3', 'audio/E.mp3', function (){}, 
 function (msg) { alert ("error" + msg);});
 
-audio.preloadFX('b4', 'audio/F.mp3', function (msg){}, 
+audio.preloadFX('b4', 'audio/F.mp3', function (){}, 
 function (msg) { alert ("error" + msg);});
 
 
@@ -40,14 +40,11 @@ function (msg) { alert ("error" + msg);});
 		alert ('pantalla' + pantalla);
 		var encabezado=$('.ui header').outerHeight();
 		alert ('encabezado' + encabezado);
-		var pie=$('.ui footer').outerHeight();
+		var pie=$('.ui-footer').outerHeight();
 		alert ('pie' + pie);
 		var contenido=$('.ui-content').outerHeight();// va apreguntar su alto externo
 		alert ('contenido' + contenido);
-		var alto=((pantalla-encabezado-pie)/2); 
-		
-		 
-		
+	     var alto=(pantalla-encabezado-pie)/2;
 		$('.cuadro').height(alto);
 	});
 	
@@ -71,9 +68,9 @@ $('#btnconfigurar').on('tap',function (){
 $('#btnguardar').on ('tap',function(){
 	var nuevonombre=$('#txtnombre').val();
 	basedatos.transaction (function(consulta){
-		consulta.executeSql("UPDATE Usuario SET Nombreusuario=? where Claveusuario='1'",[Nombreusuario]);
+		consulta.executeSql("UPDATE Usuario SET Nombreusuario=? WHERE ClaveUsuario='1';",[nuevonombre]);
 	});
-});	
+cargarnombrejugador()
 function flash (boton)
 	{
 		boton.stop().animate ({opacity:'0.5'},{
@@ -82,9 +79,11 @@ function flash (boton)
 		}
 	});
 }
-});
+
 $('.cuadro').on ('tap',function (){
 	flash ($(this))
 	audio.play ($(this).attr('id'));
 });
  });
+});
+});
